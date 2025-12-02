@@ -1,0 +1,405 @@
+/* --- Configuración General --- */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #0a0a2a 0%, #000011 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- La Cúpula de Cristal --- */
+.jar-container {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.glass-dome {
+    width: 260px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(100, 100, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 150px 150px 20px 20px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    box-shadow: 
+        0 0 30px rgba(0, 0, 40, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    z-index: 10;
+    backdrop-filter: blur(1px);
+    pointer-events: none;
+}
+
+.glass-dome::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 15px;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    border-radius: 20px;
+    filter: blur(3px);
+    opacity: 0.6;
+}
+
+.base {
+    width: 280px;
+    height: 25px;
+    background: #1a050f;
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    border-radius: 50%;
+    border-top: 2px solid #ff0055;
+    box-shadow: 0 10px 20px #000, 0 -5px 15px rgba(255, 0, 85, 0.3);
+    z-index: 4;
+}
+
+/* Contenedor de rosa */
+.css-rose-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    transform: scale(0.55) translate(-140px, -80px);
+    transform-origin: top center;
+}
+
+/* Pétalos */
+.petals > div {
+    position: absolute;
+    background: #d52d58;
+    width: 85px;
+    height: 120px;
+    top: 200px;
+    transition: all 0.5s ease-out;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.petals > div:nth-child(1) {
+    border-radius: 15px;
+    box-shadow: 0px 0px 60px rgba(245, 148, 184, 1);
+    left: 268px;
+}
+
+.petals > div:nth-child(2),
+.petals > div:nth-child(4),
+.petals > div:nth-child(6) {
+    background: #b81b43;
+    left: 230px;
+    border-radius: 0px 50px 0px 50px;
+    transform-origin: bottom right;
+}
+
+.petals > div:nth-child(3),
+.petals > div:nth-child(5),
+.petals > div:nth-child(7) {
+    background: #b81b43;
+    left: 300px;
+    border-radius: 50px 0px 50px 0px;
+    transform-origin: bottom left;
+}
+
+/* Animaciones de pétalos */
+.petals > div:nth-child(2) {
+    z-index: 5;
+    background: #ab1a3f;
+    top: 218px;
+    height: 130px;
+    box-shadow: 0px 0px 60px rgba(245, 148, 184, .5);
+    animation: bloom2 3s ease-in-out forwards;
+}
+
+.petals > div:nth-child(3) {
+    z-index: 4;
+    background: #ab1a3f;
+    top: 218px;
+    height: 130px;
+    box-shadow: 0px 0px 60px rgba(245, 148, 184, .5);
+    animation: bloom3 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals > div:nth-child(4) {
+    z-index: 3;
+    background: #b81b43;
+    top: 213px;
+    height: 135px;
+    animation: bloom4 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals > div:nth-child(5) {
+    z-index: 2;
+    background: #b81b43;
+    top: 213px;
+    height: 135px;
+    animation: bloom5 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals > div:nth-child(6) {
+    z-index: 1;
+    background: #c9204b;
+    top: 200px;
+    height: 130px;
+    animation: bloom6 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals > div:nth-child(7) {
+    z-index: 0;
+    background: #c9204b;
+    top: 200px;
+    height: 130px;
+    animation: bloom7 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+/* Hojas y tallo */
+.leaves > div:nth-last-child(1) {
+    position: absolute;
+    width: 55px;
+    height: 30px;
+    background: #338f37;
+    top: 334px;
+    left: 278px;
+    border-radius: 100px;
+}
+
+.leaves > div:nth-child(1) {
+    position: absolute;
+    width: 15px;
+    height: 390px;
+    background: #054c05;
+    top: 308px;
+    left: 300px;
+    border-radius: 0 0 100px 100px;
+}
+
+.leaves > div:nth-child(2) {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background: #054c05;
+    transform: rotate(-30deg);
+    top: 412px;
+    left: 254px;
+    border-radius: 10px 80px 40px 80px;
+    box-shadow: inset 10px 10px #066406;
+}
+
+.leaves > div:nth-child(3) {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background: #054c05;
+    transform: rotate(30deg);
+    top: 360px;
+    left: 300px;
+    border-radius: 80px 1px 80px 40px;
+    box-shadow: inset -10px 10px #066406;
+}
+
+/* Espinas */
+.thorns > div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 200px;
+}
+
+.thorns > div:nth-child(odd) {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #054c05;
+    left: 315px;
+}
+
+.thorns > div:nth-child(even) {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #054c05;
+    left: 285px;
+}
+
+.thorns > div:nth-child(1) { top: 465px; }
+.thorns > div:nth-child(2) { top: 390px; }
+.thorns > div:nth-child(4) { top: 525px; }
+
+/* Animaciones */
+@keyframes bloom2 {
+    50% {
+        transform: rotate(-90deg);
+        top: 400px;
+        left: 150px;
+    }
+    100% {
+        transform: rotate(-60deg);
+        top: 650px;
+        left: 100px;
+        background: #71122a;
+        box-shadow: none;
+    }
+}
+
+@keyframes bloom3 { 100% { transform: rotate(50deg); } }
+@keyframes bloom4 { 100% { transform: rotate(-25deg); } }
+@keyframes bloom5 { 100% { transform: rotate(25deg); } }
+@keyframes bloom6 { 100% { transform: rotate(-10deg); } }
+@keyframes bloom7 { 100% { transform: rotate(10deg); } }
+
+@keyframes glowing {
+    50% {
+        background: #d7365f;
+        box-shadow: 0px 0px 60px rgba(245, 148, 184, 1);
+    }
+}
+
+/* Texto */
+.message {
+    margin-top: -20px;
+    z-index: 20;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    background: -webkit-linear-gradient(#fff, #ff66b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 0, 102, 0.6);
+}
+
+p {
+    font-size: 1.1rem;
+    color: #dbeaff;
+    max-width: 400px;
+    line-height: 1.5;
+    margin: 0 auto;
+    text-shadow: 0 2px 4px black;
+}
+
+/* Luciérnagas */
+.firefly {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff, 0 0 20px #ff0066;
+    animation: move 15s linear infinite;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translate(var(--x), var(--y)); opacity: 0; }
+}
+
+/* --- PÉTALO ANIMADO CONTINUO --- */
+        /* Este es un clon del pétalo 2 que caerá infinitamente */
+        .falling-petal-continuous {
+            position: absolute;
+            background: #ab1a3f;
+            top: 218px;
+            left: 230px;
+            height: 130px;
+            width: 85px;
+            border-radius: 0px 50px 0px 50px;
+            transform-origin: bottom right;
+            z-index: 6;
+            box-shadow: 0px 0px 60px rgba(245, 148, 184, .5);
+            /* Animación infinita */
+            animation: fallCycle 8s ease-in-out infinite; 
+            pointer-events: none;
+        }
+
+        @keyframes fallCycle {
+            0% {
+                top: 218px;
+                left: 230px;
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+            15% {
+                /* Se empieza a separar */
+                transform: rotate(-20deg);
+                top: 250px;
+                left: 200px;
+            }
+            60% {
+                /* Caída media */
+                transform: rotate(-90deg);
+                top: 500px; 
+                left: 150px;
+                opacity: 1;
+            }
+            85% {
+                /* Toca el suelo */
+                top: 650px;
+                left: 100px;
+                transform: rotate(-60deg);
+                opacity: 1;
+                background: #71122a; /* Se oscurece un poco al caer */
+            }
+            95% {
+                /* Se desvanece en el suelo */
+                top: 650px;
+                left: 100px;
+                transform: rotate(-60deg);
+                opacity: 0;
+            }
+            100% {
+                /* Reset invisible */
+                top: 218px;
+                left: 230px;
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+/* Pétalo que cae una sola vez (usado por JS para spawn único) */
+.falling-petal {
+    position: fixed;
+    background: #ab1a3f;
+    border-radius: 0px 50px 0px 50px;
+    transform-origin: center;
+    box-shadow: 0px 0px 60px rgba(245,148,184,0.6);
+    pointer-events: none;
+    z-index: 15;
+    /* Variables que el JS establecerá: --duration, --drift, --fallY, --start-rot, --end-rot */
+    animation: petalFall var(--duration, 6s) cubic-bezier(.2,.8,.2,1) forwards;
+    opacity: 0;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot, 0deg));
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--drift, 0px), var(--fallY, 400px)) rotate(var(--end-rot, -80deg));
+        opacity: 0;
+    }
+}
+
